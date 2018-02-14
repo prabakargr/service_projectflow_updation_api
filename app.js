@@ -168,6 +168,10 @@ app.post('/newproject',function(req,res){
             res.send(project);
         })
     })
+});
+
+app.get('/:name',function(req,res){
+ res.send(req.params.name)
 })
 
 
