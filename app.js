@@ -171,7 +171,8 @@ app.post('/newproject',function(req,res){
 });
 
 app.get('/:name',function(req,res){
- res.send(req.params.name)
+    var name=req.params.name
+ res.send(name)
 })
 
 
