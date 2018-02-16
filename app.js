@@ -170,10 +170,15 @@ app.post('/newproject',function(req,res){
     })
 });
 
-app.get('/:name/:name',function(req,res){
-    var name=req.params.name
- res.send(name)
-})
+// app.get('/:name/:id',function(req,res){
+    
+
+//   var name=req.params.name;
+//   var id=req.params.id
+
+
+//  res.send(name,id)
+// })
 
 
 
