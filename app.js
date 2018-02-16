@@ -99,7 +99,8 @@ app.post('/forgotpwd',function(req,res){
 
 app.post('/changepassword',function(req,res){
     var old_pwd={
-        password:req.body.password,
+        email:req.body.email,
+        password:req.body.password
     };
     var new_pwd={
         updatepassword:req.body.updatepassword,
