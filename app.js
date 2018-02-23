@@ -76,6 +76,23 @@ app.post('/findprofile',function(req,res){
         });
     });
 });
+
+//get all users
+app.get('/getallusers',function(req,res){
+    connection((db)=>{
+        db.collection('allusers')
+        .find()
+        .toArray({})
+        .then((alusers)=>{
+            if(allusers){
+               
+                res.send(allusers);
+            }else{
+                res.status(400).send({'status':'cannot get'});
+            }
+        })
+    })
+})
 //forgot password, get object using email
 
 app.post('/forgotpwd',function(req,res){
@@ -171,15 +188,7 @@ app.post('/newproject',function(req,res){
     })
 });
 
-// app.get('/:name/:id',function(req,res){
-    
 
-//   var name=req.params.name;
-//   var id=req.params.id
-
-
-//  res.send(name,id)
-// })
 
 
 
@@ -193,6 +202,6 @@ var port=process.env.PORT || '4000';
 
 app.set('port',port);
 
-var server=http.createServer(app);
+// var server=http.createServer(app);
 
 app.listen(port, () => console.log(`Running on localhost:4000`));
