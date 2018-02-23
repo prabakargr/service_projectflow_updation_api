@@ -83,7 +83,7 @@ app.get('/getallusers',function(req,res){
         db.collection('allusers')
         .find()
         .toArray({})
-        .then((alusers)=>{
+        .then((allusers)=>{
             if(allusers){
                
                 res.send(allusers);
