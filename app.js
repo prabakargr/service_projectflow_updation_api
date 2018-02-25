@@ -131,6 +131,31 @@ app.post('/changepassword',function(req,res){
     });
 });
 
+//update profile
+
+app.post('/updateprofile',function(req,res){
+    var find_id={
+        email:req.body.email,
+        username:req.body.username
+    };
+    var update_details={
+        company:req.body.company,
+        firstname:req.body.firstname,
+        lastname:req.body.lastname,
+        address:req.body.address,
+        city:req.body.city,
+        postalcode:req.body.postalcode,
+        aboutme:req.body.aboutme,
+    };
+    connection((db)=>{
+        db.collection('allusers')
+        .updateOne(find_id,{"$set":(update_details)},function(err,result){
+            res.send(update_details);
+
+        });
+    });
+});
+
 // get dashbord details
 
 app.get('/projectlists',function(req,res){
